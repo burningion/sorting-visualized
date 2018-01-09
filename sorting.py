@@ -8,6 +8,7 @@ from skimage import color
 from scipy.misc import imsave
 
 import numpy as np
+import os
 
 # Most of these sorting algorithms are modified from
 # geekviewpoint.com's sorting implementations
@@ -143,6 +144,8 @@ def swap_pixels(row, places):
 # 24 fps, and we want a 5 second gif 24 * 5 = 120 total frames (* 24 5)
 movie_image_step = maxMoves // 120
 movie_image_frame = 0
+
+os.makedirs(args.sorter, exist_ok=True)
 
 while currentMove < maxMoves:
     for i in range(img.shape[0]):
